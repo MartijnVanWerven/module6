@@ -9,8 +9,6 @@ public class RestTestController {
 
     }
 
-    // Aggregate root
-    // tag::get-aggregate-root[]
     @GetMapping("/test")
     String all() {
         return "YAY!!";
