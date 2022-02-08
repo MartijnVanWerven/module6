@@ -24,11 +24,11 @@ public class RestTestController {
 
 
     @PutMapping("/temperatuur/{id}")
-    Temperatuur replaceEmployee(@RequestBody Temperatuur newTemperatuur, @PathVariable Long id) {
+    Temperatuur replaceTemperatuur(@RequestBody Temperatuur newTemperatuur, @PathVariable Long id) {
 
         return repository.findById(id)
                 .map(temperatuur -> {
-                    temperatuur.setTemperatuur(37.7d);
+                    temperatuur.setTemperatuur(newTemperatuur.getTemperatuur());
                     return repository.save(temperatuur);
                 })
                 .orElseGet(() -> {
