@@ -1,4 +1,6 @@
 package com.example.demo.entities;
 
-public class TemperatuurRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+interface TemperatuurRepository extends JpaRepository<Temperatuur,Long>{
 }

@@ -12,8 +12,8 @@ public class Temperatuur {
     private @Id
     @GeneratedValue
     Long Id;
-    final private Instant meetTijdStip;
-    final private Double temperatuur;
+    private Instant meetTijdStip;
+    private Double temperatuur;
 
     Temperatuur(Instant meetTijdStip, Double temperatuur) {
         this.meetTijdStip = meetTijdStip;
@@ -39,6 +39,10 @@ public class Temperatuur {
 
     public Instant getMeetTijdStip() {
         return meetTijdStip;
+    }
+
+    public void setTemperatuur(Double temperatuur){
+        this.temperatuur = temperatuur;
     }
 
     public Double getTemperatuur() {

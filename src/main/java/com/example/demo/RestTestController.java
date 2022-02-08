@@ -28,7 +28,7 @@ public class RestTestController {
 
         return repository.findById(id)
                 .map(temperatuur -> {
-                    temperatuur.setTemperatuur(newTemperatuur.getName());
+                    temperatuur.setTemperatuur(37.7d);
                     return repository.save(temperatuur);
                 })
                 .orElseGet(() -> {
