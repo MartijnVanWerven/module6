@@ -18,12 +18,12 @@ public class RestTemperatuurController {
     }
 
     @GetMapping("/temperatuur")
-    List<Temperatuur> all() {
+    public List<Temperatuur> all() {
         return repository.findAll();
     }
 
     @PostMapping("/temperatuur")
-    Temperatuur replaceTemperatuur(@RequestBody Double gemetenTemperatuur) {
+    public Temperatuur replaceTemperatuur(@RequestBody Double gemetenTemperatuur) {
         repository.save(new Temperatuur(gemetenTemperatuur));
         return null;
     }
