@@ -9,9 +9,9 @@ import javax.persistence.Id;
 
 @Entity
 public class Temperatuur {
-    private @Id
+    @Id
     @GeneratedValue
-    Long Id;
+     private Long Id;
     private Instant meetTijdStip;
     private Double temperatuur;
 

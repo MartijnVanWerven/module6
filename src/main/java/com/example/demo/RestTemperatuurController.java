@@ -5,6 +5,7 @@ import com.example.demo.entities.TemperatuurRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
+import java.util.List;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestTemperatuurController {
@@ -17,17 +18,13 @@ public class RestTemperatuurController {
     }
 
     @GetMapping("/temperatuur")
-    String all() {
-        return "YAY!!";
+    List<Temperatuur> all() {
+        return repository.findAll();
     }
 
     @PostMapping("/temperatuur")
     Temperatuur replaceTemperatuur(@RequestBody Double gemetenTemperatuur) {
-
-        Temperatuur temperatuur = new Temperatuur(gemetenTemperatuur);
-
-        repository.save(temperatuur);
-        System.out.println(temperatuur.getTemperatuur());
+        repository.save(new Temperatuur(gemetenTemperatuur));
         return null;
     }
 }
