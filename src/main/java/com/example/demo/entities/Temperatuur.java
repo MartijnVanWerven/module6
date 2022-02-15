@@ -29,16 +29,4 @@ public class Temperatuur {
         this.meetTijdStip = Instant.now();
         this.temperatuurWaarde = temperatuur;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Temperatuur temp)) {
-            return false;
-        }
-        return Objects.equals(this.getId(), temp.Id) && Objects.equals(this.getTemperatuurWaarde(), temp.getTemperatuurWaarde())
-                && Objects.equals(this.getMeetTijdStip(), temp.getMeetTijdStip());
-    }
 }
