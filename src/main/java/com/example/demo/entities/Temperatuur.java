@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.Instant;
-import java.util.Objects;
 
 @Entity
 @EqualsAndHashCode
@@ -17,9 +16,11 @@ public class Temperatuur {
     @GeneratedValue
     @Getter
     private Long Id;
-    @Setter @Getter
+    @Setter
+    @Getter
     private Instant meetTijdStip;
-    @Setter @Getter
+    @Setter
+    @Getter
     private Double temperatuurWaarde;
 
     public Temperatuur() {
