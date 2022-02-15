@@ -12,10 +12,10 @@ public class Temperatuur {
     private @Id
     @GeneratedValue
     Long Id;
-    private Instant meetTijdStip;
+    private String meetTijdStip;
     private Double temperatuur;
 
-    public Temperatuur(Instant meetTijdStip, Double temperatuur) {
+    public Temperatuur(String meetTijdStip, Double temperatuur) {
         this.meetTijdStip = meetTijdStip;
         this.temperatuur = temperatuur;
     }
@@ -37,7 +37,7 @@ public class Temperatuur {
                 && Objects.equals(this.getMeetTijdStip(), temp.getMeetTijdStip());
     }
 
-    public Instant getMeetTijdStip() {
+    public String getMeetTijdStip() {
         return meetTijdStip;
     }
 

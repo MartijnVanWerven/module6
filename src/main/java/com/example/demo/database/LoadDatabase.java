@@ -19,8 +19,8 @@ class LoadDatabase {
     CommandLineRunner initDatabase(TemperatuurRepository repository) {
 
         return args -> {
-            log.info("Preloading " + repository.save(new Temperatuur(Instant.now(), 37.0)));
-            log.info("Preloading " + repository.save(new Temperatuur(Instant.now(), 37.0)));
+            log.info("Preloading " + repository.save(new Temperatuur(Instant.now().toString(), 37.0)));
+            log.info("Preloading " + repository.save(new Temperatuur(Instant.now().toString(), 37.0)));
         };
     }
 }
