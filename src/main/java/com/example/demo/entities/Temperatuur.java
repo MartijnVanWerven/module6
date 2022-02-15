@@ -1,5 +1,9 @@
 package com.example.demo.entities;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -7,23 +11,23 @@ import java.time.Instant;
 import java.util.Objects;
 
 @Entity
+@EqualsAndHashCode
 public class Temperatuur {
     @Id
     @GeneratedValue
+    @Getter
     private Long Id;
+    @Setter @Getter
     private Instant meetTijdStip;
-    private Double temperatuur;
+    @Setter @Getter
+    private Double temperatuurWaarde;
 
     public Temperatuur() {
     }
 
     public Temperatuur(Double temperatuur) {
         this.meetTijdStip = Instant.now();
-        this.temperatuur = temperatuur;
-    }
-
-    public Long getId() {
-        return Id;
+        this.temperatuurWaarde = temperatuur;
     }
 
     @Override
@@ -34,19 +38,7 @@ public class Temperatuur {
         if (!(o instanceof Temperatuur temp)) {
             return false;
         }
-        return Objects.equals(this.getId(), temp.Id) && Objects.equals(this.getTemperatuur(), temp.getTemperatuur())
+        return Objects.equals(this.getId(), temp.Id) && Objects.equals(this.getTemperatuurWaarde(), temp.getTemperatuurWaarde())
                 && Objects.equals(this.getMeetTijdStip(), temp.getMeetTijdStip());
-    }
-
-    public Instant getMeetTijdStip() {
-        return meetTijdStip;
-    }
-
-    public Double getTemperatuur() {
-        return temperatuur;
-    }
-
-    public void setTemperatuur(Double temperatuur) {
-        this.temperatuur = temperatuur;
     }
 }

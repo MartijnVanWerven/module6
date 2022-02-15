@@ -36,7 +36,6 @@ public class RestTemperatuurController {
 
     @PostMapping("/temperatuur")
     public Temperatuur addTemperatuur(@RequestBody Double gemetenTemperatuur) {
-        repository.save(new Temperatuur(gemetenTemperatuur));
-        return null;
+        return repository.save(new Temperatuur(gemetenTemperatuur));
     }
 }
