@@ -1,11 +1,9 @@
-package com.example.demo;
+package com.example.demo.controllers;
 
 import com.example.demo.entities.Temperatuur;
-import com.example.demo.entities.TemperatuurRepository;
-import net.bytebuddy.dynamic.DynamicType;
+import com.example.demo.repositories.TemperatuurRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +22,7 @@ public class RestTemperatuurController {
     }
 
     @GetMapping("/temperatuur/{id}")
-    public Optional<Temperatuur> getById(@PathVariable long id) {
+    public Optional<Temperatuur> getTemperatuurById(@PathVariable long id) {
         Optional<Temperatuur> optTemperatuur = repository.findById(id);
         if(optTemperatuur.isPresent()){
             return repository.findById(id);
