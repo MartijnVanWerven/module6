@@ -1,10 +1,14 @@
 package com.example.demo.database;
 
+import com.example.demo.entities.Temperatuur;
+import com.example.demo.entities.TemperatuurRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.time.Instant;
 
 @Configuration
 class LoadDatabase {
@@ -15,8 +19,8 @@ class LoadDatabase {
     CommandLineRunner initDatabase(TemperatuurRepository repository) {
 
         return args -> {
-            log.info("Preloading " + repository.save(new Temperatuur("Bilbo Baggins", "burglar")));
-            log.info("Preloading " + repository.save(new Temperatuur("Frodo Baggins", "thief")));
+            log.info("Preloading " + repository.save(new Temperatuur(Instant.now(), 37.0)));
+            log.info("Preloading " + repository.save(new Temperatuur(Instant.now(), 37.0)));
         };
     }
 }

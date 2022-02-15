@@ -15,7 +15,7 @@ public class Temperatuur {
     private Instant meetTijdStip;
     private Double temperatuur;
 
-    Temperatuur(Instant meetTijdStip, Double temperatuur) {
+    public Temperatuur(Instant meetTijdStip, Double temperatuur) {
         this.meetTijdStip = meetTijdStip;
         this.temperatuur = temperatuur;
     }
