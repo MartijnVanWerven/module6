@@ -2,7 +2,10 @@ package com.example.demo.controllers;
 
 import com.example.demo.entities.Temperatuur;
 import com.example.demo.repositories.TemperatuurRepository;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,9 +27,9 @@ public class RestTemperatuurController {
     @GetMapping("/temperatuur/{id}")
     public Optional<Temperatuur> getTemperatuurById(@PathVariable long id) {
         Optional<Temperatuur> optTemperatuur = repository.findById(id);
-        if(optTemperatuur.isPresent()){
+        if (optTemperatuur.isPresent()) {
             return repository.findById(id);
-        } else{
+        } else {
             return Optional.empty();
         }
     }
