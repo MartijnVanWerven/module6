@@ -2,10 +2,9 @@ package com.example.demo;
 
 import com.example.demo.entities.Temperatuur;
 import com.example.demo.entities.TemperatuurRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.Instant;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestTestController {
@@ -23,17 +22,21 @@ public class RestTestController {
     }
 
 
-    @PutMapping("/temperatuur/{id}")
-    Temperatuur replaceTemperatuur(@RequestBody Temperatuur newTemperatuur, @PathVariable Long id) {
+    @PostMapping("/temperatuur")
+    Temperatuur replaceTemperatuur(@RequestBody String test) {
 
-        return repository.findById(id)
-                .map(temperatuur -> {
-                    temperatuur.setTemperatuur(newTemperatuur.getTemperatuur());
-                    return repository.save(temperatuur);
-                })
-                .orElseGet(() -> {
-                    newTemperatuur.setId(id);
-                    return repository.save(newTemperatuur);
-                });
+        Temperatuur tmp = new Temperatuur(Instant.now(),Double.parseDouble(test));
+
+        System.out.println(tmp.getTemperatuur());
+        return null;
+//        return repository.findById(id)
+//                .map(temperatuur -> {
+//                    temperatuur.setTemperatuur(newTemperatuur.getTemperatuur());
+//                    return repository.save(temperatuur);
+//                })
+//                .orElseGet(() -> {
+//                    newTemperatuur.setId(id);
+//                    return repository.save(newTemperatuur);
+//                });
     }
 }
