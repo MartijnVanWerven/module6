@@ -15,6 +15,8 @@ public class Temperatuur {
     private Instant meetTijdStip;
     private Double temperatuur;
 
+    public Temperatuur(){}
+
     public Temperatuur(Double temperatuur) {
         this.meetTijdStip = Instant.now();
         this.temperatuur = temperatuur;

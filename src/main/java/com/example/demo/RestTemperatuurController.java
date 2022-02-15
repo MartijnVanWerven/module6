@@ -21,7 +21,6 @@ public class RestTemperatuurController {
         return "YAY!!";
     }
 
-
     @PostMapping("/temperatuur")
     Temperatuur replaceTemperatuur(@RequestBody Double gemetenTemperatuur) {
 
