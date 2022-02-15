@@ -23,9 +23,9 @@ public class RestTestController {
 
 
     @PostMapping("/temperatuur")
-    Temperatuur replaceTemperatuur(@RequestBody Temperatuur test) {
+    Temperatuur replaceTemperatuur(@RequestBody Double gemetenTemperatuur) {
 
-        Temperatuur tmp = new Temperatuur(test.getMeetTijdStip(),test.getTemperatuur());
+        Temperatuur tmp = new Temperatuur(gemetenTemperatuur);
 
         System.out.println(tmp.getTemperatuur());
         return null;
