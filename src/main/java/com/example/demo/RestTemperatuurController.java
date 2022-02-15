@@ -24,12 +24,12 @@ public class RestTemperatuurController {
     }
 
     @GetMapping("/temperatuur/{id}")
-    public Optional<Temperatuur> getById(@RequestParam long id) {
+    public Optional<Temperatuur> getById(@PathVariable long id) {
         Optional<Temperatuur> optTemperatuur = repository.findById(id);
         if(optTemperatuur.isPresent()){
             return repository.findById(id);
         } else{
-            return new Optional<Temperatuur>;
+            return Optional.empty();
         }
     }
 
